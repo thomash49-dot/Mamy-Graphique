@@ -1,0 +1,2905 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+
+    name="viewport"
+
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+
+  >
+
+  <meta name="theme-color" content="#e87524">
+
+  <title>Mamy Graphique</title>
+
+  <link rel="manifest" href="./manifest.json">
+
+  <link rel="apple-touch-icon" href="./icon.PNG">
+
+  <link rel="icon" type="image/png" href="./icon.PNG">
+
+  <style>
+
+    :root {
+
+      --bg: #f5f3ef;
+
+      --card: #ffffff;
+
+      --text: #24201d;
+
+      --muted: #77706b;
+
+      --border: #e7e1dc;
+
+      --orange: #e87524;
+
+      --orange-dark: #c85d13;
+
+      --orange-soft: #fff0e4;
+
+      --stout: #4c3528;
+
+      --green: #23855b;
+
+      --red: #b83b3b;
+
+      --shadow: 0 8px 25px rgba(60, 40, 25, .07);
+
+    }
+
+    * {
+
+      box-sizing: border-box;
+
+    }
+
+    html {
+
+      -webkit-text-size-adjust: 100%;
+
+    }
+
+    body {
+
+      margin: 0;
+
+      background: var(--bg);
+
+      color: var(--text);
+
+      font-family:
+
+        -apple-system,
+
+        BlinkMacSystemFont,
+
+        "Segoe UI",
+
+        Roboto,
+
+        Arial,
+
+        sans-serif;
+
+    }
+
+    button,
+
+    input,
+
+    select {
+
+      font: inherit;
+
+    }
+
+    button {
+
+      cursor: pointer;
+
+      -webkit-tap-highlight-color: transparent;
+
+    }
+
+    .app {
+
+      width: min(1100px, 100%);
+
+      margin: auto;
+
+      padding:
+
+        calc(18px + env(safe-area-inset-top))
+
+        16px
+
+        calc(40px + env(safe-area-inset-bottom));
+
+    }
+
+    /* HEADER */
+
+    .header {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 14px;
+
+      margin-bottom: 22px;
+
+    }
+
+    .logo {
+
+      width: 68px;
+
+      height: 68px;
+
+      border-radius: 18px;
+
+      object-fit: cover;
+
+      box-shadow: var(--shadow);
+
+      flex-shrink: 0;
+
+    }
+
+    .header-text {
+
+      min-width: 0;
+
+    }
+
+    .header h1 {
+
+      margin: 0;
+
+      font-size: clamp(25px, 5vw, 36px);
+
+      line-height: 1.05;
+
+    }
+
+    .header p {
+
+      margin: 6px 0 0;
+
+      color: var(--muted);
+
+      font-size: 14px;
+
+    }
+
+    /* NAVIGATION */
+
+    .tabs {
+
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 7px;
+
+      background: #eae5e0;
+
+      padding: 5px;
+
+      border-radius: 16px;
+
+      margin-bottom: 20px;
+
+    }
+
+    .tab {
+
+      border: 0;
+
+      background: transparent;
+
+      min-height: 46px;
+
+      border-radius: 12px;
+
+      color: var(--muted);
+
+      font-weight: 700;
+
+    }
+
+    .tab.active {
+
+      background: white;
+
+      color: var(--text);
+
+      box-shadow: 0 2px 10px rgba(0,0,0,.06);
+
+    }
+
+    /* SECTIONS */
+
+    .page {
+
+      display: none;
+
+    }
+
+    .page.active {
+
+      display: block;
+
+    }
+
+    .card {
+
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      border-radius: 20px;
+
+      padding: 18px;
+
+      box-shadow: var(--shadow);
+
+    }
+
+    .section-title {
+
+      margin: 0 0 4px;
+
+      font-size: 20px;
+
+    }
+
+    .section-subtitle {
+
+      margin: 0 0 18px;
+
+      color: var(--muted);
+
+      font-size: 14px;
+
+    }
+
+    /* DASHBOARD */
+
+    .kpis {
+
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 12px;
+
+      margin-bottom: 18px;
+
+    }
+
+    .kpi {
+
+      background: var(--card);
+
+      border: 1px solid var(--border);
+
+      border-radius: 18px;
+
+      padding: 17px;
+
+      box-shadow: var(--shadow);
+
+      min-width: 0;
+
+    }
+
+    .kpi-label {
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+      margin-bottom: 7px;
+
+    }
+
+    .kpi-value {
+
+      font-size: clamp(21px, 4vw, 30px);
+
+      font-weight: 800;
+
+      overflow-wrap: anywhere;
+
+    }
+
+    .declared {
+
+      color: var(--orange-dark);
+
+    }
+
+    .stout {
+
+      color: var(--stout);
+
+    }
+
+    .total {
+
+      color: var(--green);
+
+    }
+
+    /* PERIOD */
+
+    .period-selector {
+
+      display: flex;
+
+      gap: 7px;
+
+      flex-wrap: wrap;
+
+      margin-bottom: 18px;
+
+    }
+
+    .period-btn {
+
+      border: 1px solid var(--border);
+
+      background: white;
+
+      color: var(--muted);
+
+      padding: 10px 14px;
+
+      min-height: 44px;
+
+      border-radius: 12px;
+
+      font-weight: 700;
+
+    }
+
+    .period-btn.active {
+
+      background: var(--orange);
+
+      border-color: var(--orange);
+
+      color: white;
+
+    }
+
+    /* GRAPH */
+
+    .chart-container {
+
+      width: 100%;
+
+      overflow-x: auto;
+
+    }
+
+    #chart {
+
+      display: block;
+
+      width: 100%;
+
+      min-width: 600px;
+
+      height: 310px;
+
+    }
+
+    .legend {
+
+      display: flex;
+
+      gap: 20px;
+
+      flex-wrap: wrap;
+
+      margin: 10px 0 15px;
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+    }
+
+    .legend-item {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 7px;
+
+    }
+
+    .legend-dot {
+
+      width: 11px;
+
+      height: 11px;
+
+      border-radius: 50%;
+
+    }
+
+    .dot-declared {
+
+      background: var(--orange);
+
+    }
+
+    .dot-stout {
+
+      background: var(--stout);
+
+    }
+
+    /* FORM */
+
+    .form-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 14px;
+
+    }
+
+    label {
+
+      display: block;
+
+      min-width: 0;
+
+    }
+
+    label span {
+
+      display: block;
+
+      margin-bottom: 7px;
+
+      font-size: 13px;
+
+      font-weight: 700;
+
+    }
+
+    input {
+
+      display: block;
+
+      width: 100%;
+
+      min-width: 0;
+
+      height: 50px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 13px;
+
+      background: white;
+
+      color: var(--text);
+
+      padding: 0 13px;
+
+      font-size: 16px;
+
+      outline: none;
+
+    }
+
+    input:focus {
+
+      border-color: var(--orange);
+
+      box-shadow: 0 0 0 3px var(--orange-soft);
+
+    }
+
+    .form-total {
+
+      margin-top: 15px;
+
+      padding: 15px;
+
+      border-radius: 14px;
+
+      background: var(--orange-soft);
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 10px;
+
+      align-items: center;
+
+    }
+
+    .form-total strong {
+
+      font-size: 20px;
+
+    }
+
+    .actions {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 9px;
+
+      margin-top: 15px;
+
+    }
+
+    .btn {
+
+      border: 0;
+
+      border-radius: 13px;
+
+      min-height: 48px;
+
+      padding: 0 18px;
+
+      font-weight: 800;
+
+    }
+
+    .btn-primary {
+
+      background: var(--orange);
+
+      color: white;
+
+    }
+
+    .btn-primary:active {
+
+      background: var(--orange-dark);
+
+    }
+
+    .btn-secondary {
+
+      background: #eee9e5;
+
+      color: var(--text);
+
+    }
+
+    .btn-danger {
+
+      background: #ffe9e9;
+
+      color: var(--red);
+
+    }
+
+    .message {
+
+      margin-top: 12px;
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+      min-height: 18px;
+
+    }
+
+    /* HISTORY */
+
+    .history {
+
+      display: grid;
+
+      gap: 10px;
+
+    }
+
+    .history-row {
+
+      border: 1px solid var(--border);
+
+      border-radius: 16px;
+
+      padding: 14px;
+
+      display: grid;
+
+      grid-template-columns: 1.3fr 1fr 1fr auto;
+
+      gap: 12px;
+
+      align-items: center;
+
+    }
+
+    .history-date {
+
+      font-weight: 800;
+
+    }
+
+    .history-small {
+
+      color: var(--muted);
+
+      font-size: 12px;
+
+      margin-top: 3px;
+
+    }
+
+    .history-label {
+
+      color: var(--muted);
+
+      font-size: 11px;
+
+      margin-bottom: 3px;
+
+    }
+
+    .history-amount {
+
+      font-weight: 800;
+
+    }
+
+    .row-actions {
+
+      display: flex;
+
+      gap: 6px;
+
+    }
+
+    .icon-btn {
+
+      min-width: 44px;
+
+      min-height: 44px;
+
+      border-radius: 11px;
+
+      border: 1px solid var(--border);
+
+      background: white;
+
+    }
+
+    .empty {
+
+      text-align: center;
+
+      padding: 40px 15px;
+
+      color: var(--muted);
+
+      border: 2px dashed var(--border);
+
+      border-radius: 16px;
+
+    }
+
+    /* SUMMARY */
+
+    .summary {
+
+      margin-top: 16px;
+
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 10px;
+
+    }
+
+    .summary-box {
+
+      border-radius: 15px;
+
+      padding: 14px;
+
+      background: #faf8f6;
+
+      border: 1px solid var(--border);
+
+    }
+
+    .summary-label {
+
+      font-size: 12px;
+
+      color: var(--muted);
+
+    }
+
+    .summary-value {
+
+      font-size: 20px;
+
+      font-weight: 800;
+
+      margin-top: 4px;
+
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 700px) {
+
+      .app {
+
+        padding-left: 12px;
+
+        padding-right: 12px;
+
+      }
+
+      .logo {
+
+        width: 60px;
+
+        height: 60px;
+
+      }
+
+      .kpis {
+
+        grid-template-columns: 1fr;
+
+      }
+
+      .form-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+      .history-row {
+
+        grid-template-columns: 1fr 1fr;
+
+      }
+
+      .history-row > div:first-child {
+
+        grid-column: 1 / -1;
+
+      }
+
+      .row-actions {
+
+        grid-column: 1 / -1;
+
+      }
+
+      .icon-btn {
+
+        flex: 1;
+
+      }
+
+    }
+
+    @media (max-width: 400px) {
+
+      .tabs {
+
+        font-size: 13px;
+
+      }
+
+      .summary {
+
+        grid-template-columns: 1fr;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- HEADER -->
+
+  <header class="header">
+
+    <img
+
+      src="./icon.PNG"
+
+      alt="Mamy Graphique"
+
+      class="logo"
+
+    >
+
+    <div class="header-text">
+
+      <h1>Mamy Graphique</h1>
+
+      <p>Suivi quotidien des caisses</p>
+
+    </div>
+
+  </header>
+
+  <!-- NAVIGATION -->
+
+  <nav class="tabs">
+
+    <button
+
+      class="tab active"
+
+      data-page="dashboard"
+
+    >
+
+      Graphiques
+
+    </button>
+
+    <button
+
+      class="tab"
+
+      data-page="add"
+
+    >
+
+      Ajouter
+
+    </button>
+
+    <button
+
+      class="tab"
+
+      data-page="history"
+
+    >
+
+      Historique
+
+    </button>
+
+  </nav>
+
+  <!-- DASHBOARD -->
+
+  <section
+
+    id="dashboard"
+
+    class="page active"
+
+  >
+
+    <div class="kpis">
+
+      <div class="kpi">
+
+        <div class="kpi-label">
+
+          Déclaré
+
+        </div>
+
+        <div
+
+          id="kpiDeclared"
+
+          class="kpi-value declared"
+
+        >
+
+          0,00 €
+
+        </div>
+
+      </div>
+
+      <div class="kpi">
+
+        <div class="kpi-label">
+
+          STOUT
+
+        </div>
+
+        <div
+
+          id="kpiStout"
+
+          class="kpi-value stout"
+
+        >
+
+          0,00 €
+
+        </div>
+
+      </div>
+
+      <div class="kpi">
+
+        <div class="kpi-label">
+
+          Total général
+
+        </div>
+
+        <div
+
+          id="kpiTotal"
+
+          class="kpi-value total"
+
+        >
+
+          0,00 €
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="card">
+
+      <h2 class="section-title">
+
+        Évolution des caisses
+
+      </h2>
+
+      <p
+
+        id="periodText"
+
+        class="section-subtitle"
+
+      >
+
+        Vue mensuelle
+
+      </p>
+
+      <div class="period-selector">
+
+        <button
+
+          class="period-btn"
+
+          data-period="week"
+
+        >
+
+          Semaine
+
+        </button>
+
+        <button
+
+          class="period-btn active"
+
+          data-period="month"
+
+        >
+
+          Mois
+
+        </button>
+
+        <button
+
+          class="period-btn"
+
+          data-period="year"
+
+        >
+
+          Année
+
+        </button>
+
+      </div>
+
+      <div class="legend">
+
+        <div class="legend-item">
+
+          <span class="legend-dot dot-declared"></span>
+
+          Déclaré
+
+        </div>
+
+        <div class="legend-item">
+
+          <span class="legend-dot dot-stout"></span>
+
+          STOUT
+
+        </div>
+
+      </div>
+
+      <div class="chart-container">
+
+        <svg
+
+          id="chart"
+
+          viewBox="0 0 800 310"
+
+          aria-label="Graphique des caisses"
+
+        ></svg>
+
+      </div>
+
+      <div class="summary">
+
+        <div class="summary-box">
+
+          <div class="summary-label">
+
+            Moyenne / journée
+
+          </div>
+
+          <div
+
+            id="average"
+
+            class="summary-value"
+
+          >
+
+            0,00 €
+
+          </div>
+
+        </div>
+
+        <div class="summary-box">
+
+          <div class="summary-label">
+
+            Journées enregistrées
+
+          </div>
+
+          <div
+
+            id="dayCount"
+
+            class="summary-value"
+
+          >
+
+            0
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ADD -->
+
+  <section
+
+    id="add"
+
+    class="page"
+
+  >
+
+    <div class="card">
+
+      <h2
+
+        id="formTitle"
+
+        class="section-title"
+
+      >
+
+        Ajouter une journée
+
+      </h2>
+
+      <p class="section-subtitle">
+
+        Encode les montants de la journée.
+
+      </p>
+
+      <form id="entryForm">
+
+        <div class="form-grid">
+
+          <label>
+
+            <span>Date</span>
+
+            <input
+
+              id="dateInput"
+
+              type="date"
+
+              required
+
+            >
+
+          </label>
+
+          <label>
+
+            <span>Déclaré (€)</span>
+
+            <input
+
+              id="declaredInput"
+
+              type="number"
+
+              inputmode="decimal"
+
+              min="0"
+
+              step="0.01"
+
+              placeholder="0,00"
+
+              required
+
+            >
+
+          </label>
+
+          <label>
+
+            <span>STOUT (€)</span>
+
+            <input
+
+              id="stoutInput"
+
+              type="number"
+
+              inputmode="decimal"
+
+              min="0"
+
+              step="0.01"
+
+              placeholder="0,00"
+
+              required
+
+            >
+
+          </label>
+
+        </div>
+
+        <div class="form-total">
+
+          <span>
+
+            Total de la journée
+
+          </span>
+
+          <strong id="formTotal">
+
+            0,00 €
+
+          </strong>
+
+        </div>
+
+        <div class="actions">
+
+          <button
+
+            id="saveButton"
+
+            class="btn btn-primary"
+
+            type="submit"
+
+          >
+
+            Enregistrer
+
+          </button>
+
+          <button
+
+            id="cancelEdit"
+
+            class="btn btn-secondary"
+
+            type="button"
+
+            style="display:none;"
+
+          >
+
+            Annuler
+
+          </button>
+
+        </div>
+
+        <div
+
+          id="formMessage"
+
+          class="message"
+
+        ></div>
+
+      </form>
+
+    </div>
+
+  </section>
+
+  <!-- HISTORY -->
+
+  <section
+
+    id="history"
+
+    class="page"
+
+  >
+
+    <div class="card">
+
+      <h2 class="section-title">
+
+        Historique
+
+      </h2>
+
+      <p
+
+        id="historySubtitle"
+
+        class="section-subtitle"
+
+      >
+
+        0 journée enregistrée
+
+      </p>
+
+      <div
+
+        id="emptyHistory"
+
+        class="empty"
+
+      >
+
+        Aucune caisse enregistrée.
+
+      </div>
+
+      <div
+
+        id="historyList"
+
+        class="history"
+
+      ></div>
+
+    </div>
+
+  </section>
+
+</div>
+
+<script>
+
+(() => {
+
+  "use strict";
+
+  /* =========================
+
+     CONFIG
+
+  ========================= */
+
+  const STORAGE_KEY =
+
+    "mamy_graphique_v1_data";
+
+  /* =========================
+
+     STATE
+
+  ========================= */
+
+  let entries = loadEntries();
+
+  let editingId = null;
+
+  let currentPeriod = "month";
+
+  /* =========================
+
+     ELEMENTS
+
+  ========================= */
+
+  const tabs =
+
+    document.querySelectorAll(".tab");
+
+  const pages =
+
+    document.querySelectorAll(".page");
+
+  const periodButtons =
+
+    document.querySelectorAll(".period-btn");
+
+  const form =
+
+    document.getElementById("entryForm");
+
+  const dateInput =
+
+    document.getElementById("dateInput");
+
+  const declaredInput =
+
+    document.getElementById("declaredInput");
+
+  const stoutInput =
+
+    document.getElementById("stoutInput");
+
+  const formTotal =
+
+    document.getElementById("formTotal");
+
+  const formMessage =
+
+    document.getElementById("formMessage");
+
+  const formTitle =
+
+    document.getElementById("formTitle");
+
+  const saveButton =
+
+    document.getElementById("saveButton");
+
+  const cancelEdit =
+
+    document.getElementById("cancelEdit");
+
+  const kpiDeclared =
+
+    document.getElementById("kpiDeclared");
+
+  const kpiStout =
+
+    document.getElementById("kpiStout");
+
+  const kpiTotal =
+
+    document.getElementById("kpiTotal");
+
+  const average =
+
+    document.getElementById("average");
+
+  const dayCount =
+
+    document.getElementById("dayCount");
+
+  const periodText =
+
+    document.getElementById("periodText");
+
+  const historyList =
+
+    document.getElementById("historyList");
+
+  const emptyHistory =
+
+    document.getElementById("emptyHistory");
+
+  const historySubtitle =
+
+    document.getElementById("historySubtitle");
+
+  const chart =
+
+    document.getElementById("chart");
+
+  /* =========================
+
+     HELPERS
+
+  ========================= */
+
+  function money(value) {
+
+    return new Intl.NumberFormat(
+
+      "fr-BE",
+
+      {
+
+        style: "currency",
+
+        currency: "EUR"
+
+      }
+
+    ).format(value || 0);
+
+  }
+
+  function todayISO() {
+
+    const now = new Date();
+
+    const year =
+
+      now.getFullYear();
+
+    const month =
+
+      String(now.getMonth() + 1)
+
+        .padStart(2, "0");
+
+    const day =
+
+      String(now.getDate())
+
+        .padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+
+  }
+
+  function parseDate(date) {
+
+    const parts =
+
+      date.split("-");
+
+    return new Date(
+
+      Number(parts[0]),
+
+      Number(parts[1]) - 1,
+
+      Number(parts[2])
+
+    );
+
+  }
+
+  function formatDate(date) {
+
+    return new Intl.DateTimeFormat(
+
+      "fr-BE",
+
+      {
+
+        weekday: "short",
+
+        day: "2-digit",
+
+        month: "short",
+
+        year: "numeric"
+
+      }
+
+    ).format(parseDate(date));
+
+  }
+
+  function loadEntries() {
+
+    try {
+
+      const data =
+
+        localStorage.getItem(
+
+          STORAGE_KEY
+
+        );
+
+      if (!data) {
+
+        return [];
+
+      }
+
+      const parsed =
+
+        JSON.parse(data);
+
+      return Array.isArray(parsed)
+
+        ? parsed
+
+        : [];
+
+    }
+
+    catch (error) {
+
+      console.error(error);
+
+      return [];
+
+    }
+
+  }
+
+  function saveEntries() {
+
+    localStorage.setItem(
+
+      STORAGE_KEY,
+
+      JSON.stringify(entries)
+
+    );
+
+  }
+
+  /* =========================
+
+     NAVIGATION
+
+  ========================= */
+
+  function showPage(pageName) {
+
+    pages.forEach(page => {
+
+      page.classList.toggle(
+
+        "active",
+
+        page.id === pageName
+
+      );
+
+    });
+
+    tabs.forEach(tab => {
+
+      tab.classList.toggle(
+
+        "active",
+
+        tab.dataset.page === pageName
+
+      );
+
+    });
+
+  }
+
+  tabs.forEach(tab => {
+
+    tab.addEventListener(
+
+      "click",
+
+      () => {
+
+        showPage(
+
+          tab.dataset.page
+
+        );
+
+      }
+
+    );
+
+  });
+
+  /* =========================
+
+     FORM TOTAL
+
+  ========================= */
+
+  function updateFormTotal() {
+
+    const declared =
+
+      Number(declaredInput.value) || 0;
+
+    const stout =
+
+      Number(stoutInput.value) || 0;
+
+    formTotal.textContent =
+
+      money(declared + stout);
+
+  }
+
+  declaredInput.addEventListener(
+
+    "input",
+
+    updateFormTotal
+
+  );
+
+  stoutInput.addEventListener(
+
+    "input",
+
+    updateFormTotal
+
+  );
+
+  /* =========================
+
+     SAVE ENTRY
+
+  ========================= */
+
+  form.addEventListener(
+
+    "submit",
+
+    event => {
+
+      event.preventDefault();
+
+      const date =
+
+        dateInput.value;
+
+      const declared =
+
+        Number(declaredInput.value);
+
+      const stout =
+
+        Number(stoutInput.value);
+
+      if (
+
+        !date ||
+
+        !Number.isFinite(declared) ||
+
+        !Number.isFinite(stout) ||
+
+        declared < 0 ||
+
+        stout < 0
+
+      ) {
+
+        formMessage.textContent =
+
+          "Vérifie les montants encodés.";
+
+        return;
+
+      }
+
+      if (editingId) {
+
+        const entry =
+
+          entries.find(
+
+            item =>
+
+              item.id === editingId
+
+          );
+
+        if (entry) {
+
+          entry.date =
+
+            date;
+
+          entry.declared =
+
+            declared;
+
+          entry.stout =
+
+            stout;
+
+        }
+
+      }
+
+      else {
+
+        const existing =
+
+          entries.find(
+
+            item =>
+
+              item.date === date
+
+          );
+
+        if (existing) {
+
+          formMessage.textContent =
+
+            "Une journée existe déjà à cette date.";
+
+          return;
+
+        }
+
+        entries.push({
+
+          id:
+
+            Date.now().toString(),
+
+          date,
+
+          declared,
+
+          stout
+
+        });
+
+      }
+
+      saveEntries();
+
+      resetForm();
+
+      renderAll();
+
+      showPage("dashboard");
+
+  });
+
+  /* =========================
+
+     RESET FORM
+
+  ========================= */
+
+  function resetForm() {
+
+    editingId = null;
+
+    dateInput.value =
+
+      todayISO();
+
+    declaredInput.value = "";
+
+    stoutInput.value = "";
+
+    formTotal.textContent =
+
+      money(0);
+
+    formTitle.textContent =
+
+      "Ajouter une journée";
+
+    saveButton.textContent =
+
+      "Enregistrer";
+
+    cancelEdit.style.display =
+
+      "none";
+
+    formMessage.textContent =
+
+      "";
+
+  }
+
+  cancelEdit.addEventListener(
+
+    "click",
+
+    resetForm
+
+  );
+
+  /* =========================
+
+     EDIT
+
+  ========================= */
+
+  function editEntry(id) {
+
+    const entry =
+
+      entries.find(
+
+        item =>
+
+          item.id === id
+
+      );
+
+    if (!entry) {
+
+      return;
+
+    }
+
+    editingId =
+
+      entry.id;
+
+    dateInput.value =
+
+      entry.date;
+
+    declaredInput.value =
+
+      entry.declared;
+
+    stoutInput.value =
+
+      entry.stout;
+
+    formTitle.textContent =
+
+      "Modifier la journée";
+
+    saveButton.textContent =
+
+      "Enregistrer les modifications";
+
+    cancelEdit.style.display =
+
+      "inline-block";
+
+    updateFormTotal();
+
+    showPage("add");
+
+  }
+
+  /* =========================
+
+     DELETE
+
+  ========================= */
+
+  function deleteEntry(id) {
+
+    const entry =
+
+      entries.find(
+
+        item =>
+
+          item.id === id
+
+      );
+
+    if (!entry) {
+
+      return;
+
+    }
+
+    const confirmed =
+
+      confirm(
+
+        "Supprimer la journée du " +
+
+        formatDate(entry.date) +
+
+        " ?"
+
+      );
+
+    if (!confirmed) {
+
+      return;
+
+    }
+
+    entries =
+
+      entries.filter(
+
+        item =>
+
+          item.id !== id
+
+      );
+
+    saveEntries();
+
+    renderAll();
+
+  }
+
+  /* =========================
+
+     HISTORY
+
+  ========================= */
+
+  function renderHistory() {
+
+    historyList.innerHTML = "";
+
+    const sorted =
+
+      [...entries]
+
+        .sort(
+
+          (a, b) =>
+
+            b.date.localeCompare(
+
+              a.date
+
+            )
+
+        );
+
+    historySubtitle.textContent =
+
+      sorted.length +
+
+      (
+
+        sorted.length === 1
+
+          ? " journée enregistrée"
+
+          : " journées enregistrées"
+
+      );
+
+    emptyHistory.style.display =
+
+      sorted.length
+
+        ? "none"
+
+        : "block";
+
+    sorted.forEach(entry => {
+
+      const row =
+
+        document.createElement("div");
+
+      row.className =
+
+        "history-row";
+
+      const total =
+
+        entry.declared +
+
+        entry.stout;
+
+      row.innerHTML = `
+
+        <div>
+
+          <div class="history-date">
+
+            ${formatDate(entry.date)}
+
+          </div>
+
+          <div class="history-small">
+
+            Total : ${money(total)}
+
+          </div>
+
+        </div>
+
+        <div>
+
+          <div class="history-label">
+
+            Déclaré
+
+          </div>
+
+          <div class="history-amount declared">
+
+            ${money(entry.declared)}
+
+          </div>
+
+        </div>
+
+        <div>
+
+          <div class="history-label">
+
+            STOUT
+
+          </div>
+
+          <div class="history-amount stout">
+
+            ${money(entry.stout)}
+
+          </div>
+
+        </div>
+
+        <div class="row-actions">
+
+          <button
+
+            class="icon-btn edit"
+
+            type="button"
+
+            aria-label="Modifier"
+
+          >
+
+            ✏️
+
+          </button>
+
+          <button
+
+            class="icon-btn delete"
+
+            type="button"
+
+            aria-label="Supprimer"
+
+          >
+
+            🗑️
+
+          </button>
+
+        </div>
+
+      `;
+
+      row
+
+        .querySelector(".edit")
+
+        .addEventListener(
+
+          "click",
+
+          () =>
+
+            editEntry(entry.id)
+
+        );
+
+      row
+
+        .querySelector(".delete")
+
+        .addEventListener(
+
+          "click",
+
+          () =>
+
+            deleteEntry(entry.id)
+
+        );
+
+      historyList.appendChild(
+
+        row
+
+      );
+
+    });
+
+  }
+
+  /* =========================
+
+     PERIOD FILTER
+
+  ========================= */
+
+  function getPeriodEntries() {
+
+    const now =
+
+      new Date();
+
+    return entries
+
+      .filter(entry => {
+
+        const date =
+
+          parseDate(entry.date);
+
+        if (
+
+          currentPeriod === "year"
+
+        ) {
+
+          return (
+
+            date.getFullYear() ===
+
+            now.getFullYear()
+
+          );
+
+        }
+
+        if (
+
+          currentPeriod === "month"
+
+        ) {
+
+          return (
+
+            date.getFullYear() ===
+
+              now.getFullYear() &&
+
+            date.getMonth() ===
+
+              now.getMonth()
+
+          );
+
+        }
+
+        const current =
+
+          new Date(now);
+
+        const day =
+
+          (current.getDay() + 6) % 7;
+
+        const monday =
+
+          new Date(current);
+
+        monday.setDate(
+
+          current.getDate() - day
+
+        );
+
+        monday.setHours(
+
+          0, 0, 0, 0
+
+        );
+
+        const sunday =
+
+          new Date(monday);
+
+        sunday.setDate(
+
+          monday.getDate() + 7
+
+        );
+
+        return (
+
+          date >= monday &&
+
+          date < sunday
+
+        );
+
+      })
+
+      .sort(
+
+        (a, b) =>
+
+          a.date.localeCompare(
+
+            b.date
+
+          )
+
+      );
+
+  }
+
+  /* =========================
+
+     PERIOD BUTTONS
+
+  ========================= */
+
+  periodButtons.forEach(button => {
+
+    button.addEventListener(
+
+      "click",
+
+      () => {
+
+        currentPeriod =
+
+          button.dataset.period;
+
+        periodButtons.forEach(
+
+          item => {
+
+            item.classList.toggle(
+
+              "active",
+
+              item === button
+
+            );
+
+          }
+
+        );
+
+        renderDashboard();
+
+      }
+
+    );
+
+  });
+
+  /* =========================
+
+     DASHBOARD
+
+  ========================= */
+
+  function renderDashboard() {
+
+    const periodEntries =
+
+      getPeriodEntries();
+
+    const declared =
+
+      periodEntries.reduce(
+
+        (total, entry) =>
+
+          total + entry.declared,
+
+        0
+
+      );
+
+    const stout =
+
+      periodEntries.reduce(
+
+        (total, entry) =>
+
+          total + entry.stout,
+
+        0
+
+      );
+
+    const total =
+
+      declared + stout;
+
+    kpiDeclared.textContent =
+
+      money(declared);
+
+    kpiStout.textContent =
+
+      money(stout);
+
+    kpiTotal.textContent =
+
+      money(total);
+
+    dayCount.textContent =
+
+      periodEntries.length;
+
+    average.textContent =
+
+      money(
+
+        periodEntries.length
+
+          ? total /
+
+            periodEntries.length
+
+          : 0
+
+      );
+
+    if (
+
+      currentPeriod === "week"
+
+    ) {
+
+      periodText.textContent =
+
+        "Vue de la semaine en cours";
+
+    }
+
+    else if (
+
+      currentPeriod === "month"
+
+    ) {
+
+      periodText.textContent =
+
+        "Vue du mois en cours";
+
+    }
+
+    else {
+
+      periodText.textContent =
+
+        "Vue de l’année en cours";
+
+    }
+
+    renderChart(
+
+      periodEntries
+
+    );
+
+  }
+
+  /* =========================
+
+     SVG CHART
+
+  ========================= */
+
+  function renderChart(data) {
+
+    chart.innerHTML = "";
+
+    const NS =
+
+      "http://www.w3.org/2000/svg";
+
+    const width = 800;
+
+    const height = 310;
+
+    const left = 60;
+
+    const right = 20;
+
+    const top = 20;
+
+    const bottom = 55;
+
+    function element(
+
+      tag,
+
+      attributes,
+
+      text
+
+    ) {
+
+      const node =
+
+        document.createElementNS(
+
+          NS,
+
+          tag
+
+        );
+
+      Object.entries(
+
+        attributes || {}
+
+      ).forEach(
+
+        ([key, value]) => {
+
+          node.setAttribute(
+
+            key,
+
+            value
+
+          );
+
+        }
+
+      );
+
+      if (text !== undefined) {
+
+        node.textContent =
+
+          text;
+
+      }
+
+      chart.appendChild(
+
+        node
+
+      );
+
+      return node;
+
+    }
+
+    if (!data.length) {
+
+      element(
+
+        "text",
+
+        {
+
+          x: width / 2,
+
+          y: height / 2,
+
+          "text-anchor": "middle",
+
+          fill: "#77706b",
+
+          "font-size": "15"
+
+        },
+
+        "Aucune donnée pour cette période"
+
+      );
+
+      return;
+
+    }
+
+    const maxValue =
+
+      Math.max(
+
+        1,
+
+        ...data.flatMap(
+
+          item => [
+
+            item.declared,
+
+            item.stout
+
+          ]
+
+        )
+
+      );
+
+    const graphHeight =
+
+      height -
+
+      top -
+
+      bottom;
+
+    for (
+
+      let step = 0;
+
+      step <= 4;
+
+      step++
+
+    ) {
+
+      const ratio =
+
+        step / 4;
+
+      const y =
+
+        top +
+
+        graphHeight *
+
+        (1 - ratio);
+
+      element(
+
+        "line",
+
+        {
+
+          x1: left,
+
+          y1: y,
+
+          x2:
+
+            width - right,
+
+          y2: y,
+
+          stroke: "#e7e1dc",
+
+          "stroke-width": 1
+
+        }
+
+      );
+
+      element(
+
+        "text",
+
+        {
+
+          x: left - 8,
+
+          y: y + 4,
+
+          "text-anchor": "end",
+
+          fill: "#77706b",
+
+          "font-size": 10
+
+        },
+
+        Math.round(
+
+          maxValue * ratio
+
+        ) + "€"
+
+      );
+
+    }
+
+    const availableWidth =
+
+      width -
+
+      left -
+
+      right;
+
+    const slot =
+
+      availableWidth /
+
+      data.length;
+
+    const barWidth =
+
+      Math.min(
+
+        28,
+
+        slot * 0.28
+
+      );
+
+    data.forEach(
+
+      (entry, index) => {
+
+        const center =
+
+          left +
+
+          slot * index +
+
+          slot / 2;
+
+        const declaredHeight =
+
+          (
+
+            entry.declared /
+
+            maxValue
+
+          ) *
+
+          graphHeight;
+
+        const stoutHeight =
+
+          (
+
+            entry.stout /
+
+            maxValue
+
+          ) *
+
+          graphHeight;
+
+        element(
+
+          "rect",
+
+          {
+
+            x:
+
+              center -
+
+              barWidth -
+
+              3,
+
+            y:
+
+              top +
+
+              graphHeight -
+
+              declaredHeight,
+
+            width:
+
+              barWidth,
+
+            height:
+
+              declaredHeight,
+
+            rx: 5,
+
+            fill:
+
+              "#e87524"
+
+          }
+
+        );
+
+        element(
+
+          "rect",
+
+          {
+
+            x:
+
+              center + 3,
+
+            y:
+
+              top +
+
+              graphHeight -
+
+              stoutHeight,
+
+            width:
+
+              barWidth,
+
+            height:
+
+              stoutHeight,
+
+            rx: 5,
+
+            fill:
+
+              "#4c3528"
+
+          }
+
+        );
+
+        const date =
+
+          parseDate(
+
+            entry.date
+
+          );
+
+        const label =
+
+          String(
+
+            date.getDate()
+
+          ).padStart(
+
+            2,
+
+            "0"
+
+          ) +
+
+          "/" +
+
+          String(
+
+            date.getMonth() + 1
+
+          ).padStart(
+
+            2,
+
+            "0"
+
+          );
+
+        element(
+
+          "text",
+
+          {
+
+            x: center,
+
+            y:
+
+              height -
+
+              bottom +
+
+              22,
+
+            "text-anchor":
+
+              "middle",
+
+            fill:
+
+              "#77706b",
+
+            "font-size":
+
+              10
+
+          },
+
+          label
+
+        );
+
+      }
+
+    );
+
+  }
+
+  /* =========================
+
+     RENDER
+
+  ========================= */
+
+  function renderAll() {
+
+    renderHistory();
+
+    renderDashboard();
+
+  }
+
+  /* =========================
+
+     START
+
+  ========================= */
+
+  dateInput.value =
+
+    todayISO();
+
+  updateFormTotal();
+
+  renderAll();
+
+})();
+
+</script>
+
+</body>
+
+</html>
