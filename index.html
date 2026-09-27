@@ -124,7 +124,11 @@
 
     }
 
-    /* HEADER */
+    /* =========================
+
+       HEADER
+
+    ========================= */
 
     .header {
 
@@ -180,13 +184,17 @@
 
     }
 
-    /* NAVIGATION */
+    /* =========================
+
+       NAVIGATION
+
+    ========================= */
 
     .tabs {
 
       display: grid;
 
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
 
       gap: 7px;
 
@@ -214,6 +222,8 @@
 
       font-weight: 700;
 
+      padding: 6px;
+
     }
 
     .tab.active {
@@ -222,11 +232,19 @@
 
       color: var(--text);
 
-      box-shadow: 0 2px 10px rgba(0,0,0,.06);
+      box-shadow:
+
+        0 2px 10px
+
+        rgba(0,0,0,.06);
 
     }
 
-    /* SECTIONS */
+    /* =========================
+
+       SECTIONS
+
+    ========================= */
 
     .page {
 
@@ -244,7 +262,11 @@
 
       background: var(--card);
 
-      border: 1px solid var(--border);
+      border:
+
+        1px solid
+
+        var(--border);
 
       border-radius: 20px;
 
@@ -272,13 +294,19 @@
 
     }
 
-    /* DASHBOARD */
+    /* =========================
+
+       KPI
+
+    ========================= */
 
     .kpis {
 
       display: grid;
 
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns:
+
+        repeat(3, 1fr);
 
       gap: 12px;
 
@@ -290,7 +318,11 @@
 
       background: var(--card);
 
-      border: 1px solid var(--border);
+      border:
+
+        1px solid
+
+        var(--border);
 
       border-radius: 18px;
 
@@ -314,7 +346,9 @@
 
     .kpi-value {
 
-      font-size: clamp(21px, 4vw, 30px);
+      font-size:
+
+        clamp(21px, 4vw, 30px);
 
       font-weight: 800;
 
@@ -340,7 +374,11 @@
 
     }
 
-    /* PERIOD */
+    /* =========================
+
+       PERIOD
+
+    ========================= */
 
     .period-selector {
 
@@ -354,9 +392,15 @@
 
     }
 
-    .period-btn {
+    .period-btn,
 
-      border: 1px solid var(--border);
+    .table-period-btn {
+
+      border:
+
+        1px solid
+
+        var(--border);
 
       background: white;
 
@@ -372,7 +416,9 @@
 
     }
 
-    .period-btn.active {
+    .period-btn.active,
+
+    .table-period-btn.active {
 
       background: var(--orange);
 
@@ -382,7 +428,11 @@
 
     }
 
-    /* GRAPH */
+    /* =========================
+
+       GRAPH
+
+    ========================= */
 
     .chart-container {
 
@@ -452,13 +502,19 @@
 
     }
 
-    /* FORM */
+    /* =========================
+
+       FORM
+
+    ========================= */
 
     .form-grid {
 
       display: grid;
 
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns:
+
+        repeat(3, 1fr);
 
       gap: 14px;
 
@@ -494,7 +550,11 @@
 
       height: 50px;
 
-      border: 1px solid var(--border);
+      border:
+
+        1px solid
+
+        var(--border);
 
       border-radius: 13px;
 
@@ -514,7 +574,11 @@
 
       border-color: var(--orange);
 
-      box-shadow: 0 0 0 3px var(--orange-soft);
+      box-shadow:
+
+        0 0 0 3px
+
+        var(--orange-soft);
 
     }
 
@@ -530,7 +594,9 @@
 
       display: flex;
 
-      justify-content: space-between;
+      justify-content:
+
+        space-between;
 
       gap: 10px;
 
@@ -612,7 +678,11 @@
 
     }
 
-    /* HISTORY */
+    /* =========================
+
+       HISTORY
+
+    ========================= */
 
     .history {
 
@@ -624,7 +694,11 @@
 
     .history-row {
 
-      border: 1px solid var(--border);
+      border:
+
+        1px solid
+
+        var(--border);
 
       border-radius: 16px;
 
@@ -632,7 +706,9 @@
 
       display: grid;
 
-      grid-template-columns: 1.3fr 1fr 1fr auto;
+      grid-template-columns:
+
+        1.3fr 1fr 1fr auto;
 
       gap: 12px;
 
@@ -688,7 +764,11 @@
 
       border-radius: 11px;
 
-      border: 1px solid var(--border);
+      border:
+
+        1px solid
+
+        var(--border);
 
       background: white;
 
@@ -702,13 +782,21 @@
 
       color: var(--muted);
 
-      border: 2px dashed var(--border);
+      border:
+
+        2px dashed
+
+        var(--border);
 
       border-radius: 16px;
 
     }
 
-    /* SUMMARY */
+    /* =========================
+
+       SUMMARY
+
+    ========================= */
 
     .summary {
 
@@ -716,7 +804,9 @@
 
       display: grid;
 
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns:
+
+        repeat(2, 1fr);
 
       gap: 10px;
 
@@ -730,7 +820,11 @@
 
       background: #faf8f6;
 
-      border: 1px solid var(--border);
+      border:
+
+        1px solid
+
+        var(--border);
 
     }
 
@@ -752,7 +846,167 @@
 
     }
 
-    /* RESPONSIVE */
+    /* =========================
+
+       TABLEAU
+
+    ========================= */
+
+    .table-wrapper {
+
+      width: 100%;
+
+      overflow-x: auto;
+
+      border:
+
+        1px solid
+
+        var(--border);
+
+      border-radius: 16px;
+
+    }
+
+    .data-table {
+
+      width: 100%;
+
+      min-width: 650px;
+
+      border-collapse: collapse;
+
+      background: white;
+
+    }
+
+    .data-table th {
+
+      background: #faf8f6;
+
+      color: var(--muted);
+
+      font-size: 12px;
+
+      text-transform: uppercase;
+
+      letter-spacing: .03em;
+
+      padding: 14px 16px;
+
+      text-align: right;
+
+      border-bottom:
+
+        1px solid
+
+        var(--border);
+
+    }
+
+    .data-table th:first-child {
+
+      text-align: left;
+
+    }
+
+    .data-table td {
+
+      padding: 15px 16px;
+
+      border-bottom:
+
+        1px solid
+
+        var(--border);
+
+      text-align: right;
+
+      font-weight: 700;
+
+      white-space: nowrap;
+
+    }
+
+    .data-table td:first-child {
+
+      text-align: left;
+
+    }
+
+    .data-table tbody tr:last-child td {
+
+      border-bottom: 0;
+
+    }
+
+    .table-date {
+
+      font-weight: 800;
+
+    }
+
+    .table-total {
+
+      color: var(--green);
+
+      font-weight: 900;
+
+    }
+
+    .table-footer {
+
+      margin-top: 16px;
+
+      display: grid;
+
+      grid-template-columns:
+
+        repeat(3, 1fr);
+
+      gap: 10px;
+
+    }
+
+    .table-total-card {
+
+      border:
+
+        1px solid
+
+        var(--border);
+
+      border-radius: 16px;
+
+      padding: 15px;
+
+      background: #faf8f6;
+
+    }
+
+    .table-total-label {
+
+      color: var(--muted);
+
+      font-size: 12px;
+
+      margin-bottom: 5px;
+
+    }
+
+    .table-total-value {
+
+      font-size: 20px;
+
+      font-weight: 900;
+
+    }
+
+    /* =========================
+
+       RESPONSIVE
+
+    ========================= */
 
     @media (max-width: 700px) {
 
@@ -772,6 +1026,14 @@
 
       }
 
+      .tabs {
+
+        grid-template-columns:
+
+          repeat(2, 1fr);
+
+      }
+
       .kpis {
 
         grid-template-columns: 1fr;
@@ -786,7 +1048,9 @@
 
       .history-row {
 
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns:
+
+          1fr 1fr;
 
       }
 
@@ -808,6 +1072,12 @@
 
       }
 
+      .table-footer {
+
+        grid-template-columns: 1fr;
+
+      }
+
     }
 
     @media (max-width: 400px) {
@@ -824,6 +1094,24 @@
 
       }
 
+      .period-selector {
+
+        display: grid;
+
+        grid-template-columns:
+
+          repeat(2, 1fr);
+
+      }
+
+      .period-btn,
+
+      .table-period-btn {
+
+        width: 100%;
+
+      }
+
     }
 
   </style>
@@ -834,7 +1122,11 @@
 
 <div class="app">
 
-  <!-- HEADER -->
+  <!-- =========================
+
+       HEADER
+
+  ========================= -->
 
   <header class="header">
 
@@ -850,15 +1142,27 @@
 
     <div class="header-text">
 
-      <h1>Mamy Graphique</h1>
+      <h1>
 
-      <p>Suivi quotidien des caisses</p>
+        Mamy Graphique
+
+      </h1>
+
+      <p>
+
+        Suivi quotidien des caisses
+
+      </p>
 
     </div>
 
   </header>
 
-  <!-- NAVIGATION -->
+  <!-- =========================
+
+       NAVIGATION
+
+  ========================= -->
 
   <nav class="tabs">
 
@@ -871,6 +1175,18 @@
     >
 
       Graphiques
+
+    </button>
+
+    <button
+
+      class="tab"
+
+      data-page="tablePage"
+
+    >
+
+      Tableau
 
     </button>
 
@@ -900,7 +1216,11 @@
 
   </nav>
 
-  <!-- DASHBOARD -->
+  <!-- =========================
+
+       GRAPHIQUES
+
+  ========================= -->
 
   <section
 
@@ -1044,7 +1364,11 @@
 
         <div class="legend-item">
 
-          <span class="legend-dot dot-declared"></span>
+          <span
+
+            class="legend-dot dot-declared"
+
+          ></span>
 
           Déclaré
 
@@ -1052,7 +1376,11 @@
 
         <div class="legend-item">
 
-          <span class="legend-dot dot-stout"></span>
+          <span
+
+            class="legend-dot dot-stout"
+
+          ></span>
 
           STOUT
 
@@ -1126,7 +1454,237 @@
 
   </section>
 
-  <!-- ADD -->
+  <!-- =========================
+
+       TABLEAU
+
+  ========================= -->
+
+  <section
+
+    id="tablePage"
+
+    class="page"
+
+  >
+
+    <div class="card">
+
+      <h2 class="section-title">
+
+        Tableau des caisses
+
+      </h2>
+
+      <p
+
+        id="tableSubtitle"
+
+        class="section-subtitle"
+
+      >
+
+        Vue du mois en cours
+
+      </p>
+
+      <div class="period-selector">
+
+        <button
+
+          class="table-period-btn"
+
+          data-table-period="week"
+
+        >
+
+          Semaine
+
+        </button>
+
+        <button
+
+          class="table-period-btn active"
+
+          data-table-period="month"
+
+        >
+
+          Mois
+
+        </button>
+
+        <button
+
+          class="table-period-btn"
+
+          data-table-period="year"
+
+        >
+
+          Année
+
+        </button>
+
+        <button
+
+          class="table-period-btn"
+
+          data-table-period="all"
+
+        >
+
+          Tout
+
+        </button>
+
+      </div>
+
+      <div
+
+        id="emptyTable"
+
+        class="empty"
+
+      >
+
+        Aucune donnée pour cette période.
+
+      </div>
+
+      <div
+
+        id="tableContent"
+
+        style="display:none;"
+
+      >
+
+        <div class="table-wrapper">
+
+          <table class="data-table">
+
+            <thead>
+
+              <tr>
+
+                <th>
+
+                  Date
+
+                </th>
+
+                <th>
+
+                  Déclaré
+
+                </th>
+
+                <th>
+
+                  STOUT
+
+                </th>
+
+                <th>
+
+                  Total
+
+                </th>
+
+              </tr>
+
+            </thead>
+
+            <tbody id="tableBody">
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+        <div class="table-footer">
+
+          <div class="table-total-card">
+
+            <div class="table-total-label">
+
+              Total déclaré
+
+            </div>
+
+            <div
+
+              id="tableDeclaredTotal"
+
+              class="table-total-value declared"
+
+            >
+
+              0,00 €
+
+            </div>
+
+          </div>
+
+          <div class="table-total-card">
+
+            <div class="table-total-label">
+
+              Total STOUT
+
+            </div>
+
+            <div
+
+              id="tableStoutTotal"
+
+              class="table-total-value stout"
+
+            >
+
+              0,00 €
+
+            </div>
+
+          </div>
+
+          <div class="table-total-card">
+
+            <div class="table-total-label">
+
+              Total des deux
+
+            </div>
+
+            <div
+
+              id="tableGrandTotal"
+
+              class="table-total-value total"
+
+            >
+
+              0,00 €
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- =========================
+
+       AJOUTER
+
+  ========================= -->
 
   <section
 
@@ -1162,7 +1720,11 @@
 
           <label>
 
-            <span>Date</span>
+            <span>
+
+              Date
+
+            </span>
 
             <input
 
@@ -1178,7 +1740,11 @@
 
           <label>
 
-            <span>Déclaré (€)</span>
+            <span>
+
+              Déclaré (€)
+
+            </span>
 
             <input
 
@@ -1202,7 +1768,11 @@
 
           <label>
 
-            <span>STOUT (€)</span>
+            <span>
+
+              STOUT (€)
+
+            </span>
 
             <input
 
@@ -1290,7 +1860,11 @@
 
   </section>
 
-  <!-- HISTORY -->
+  <!-- =========================
+
+       HISTORIQUE
+
+  ========================= -->
 
   <section
 
@@ -1368,11 +1942,21 @@
 
   ========================= */
 
-  let entries = loadEntries();
+  let entries =
 
-  let editingId = null;
+    loadEntries();
 
-  let currentPeriod = "month";
+  let editingId =
+
+    null;
+
+  let currentPeriod =
+
+    "month";
+
+  let currentTablePeriod =
+
+    "month";
 
   /* =========================
 
@@ -1382,91 +1966,243 @@
 
   const tabs =
 
-    document.querySelectorAll(".tab");
+    document.querySelectorAll(
+
+      ".tab"
+
+    );
 
   const pages =
 
-    document.querySelectorAll(".page");
+    document.querySelectorAll(
+
+      ".page"
+
+    );
 
   const periodButtons =
 
-    document.querySelectorAll(".period-btn");
+    document.querySelectorAll(
+
+      ".period-btn"
+
+    );
+
+  const tablePeriodButtons =
+
+    document.querySelectorAll(
+
+      ".table-period-btn"
+
+    );
 
   const form =
 
-    document.getElementById("entryForm");
+    document.getElementById(
+
+      "entryForm"
+
+    );
 
   const dateInput =
 
-    document.getElementById("dateInput");
+    document.getElementById(
+
+      "dateInput"
+
+    );
 
   const declaredInput =
 
-    document.getElementById("declaredInput");
+    document.getElementById(
+
+      "declaredInput"
+
+    );
 
   const stoutInput =
 
-    document.getElementById("stoutInput");
+    document.getElementById(
+
+      "stoutInput"
+
+    );
 
   const formTotal =
 
-    document.getElementById("formTotal");
+    document.getElementById(
+
+      "formTotal"
+
+    );
 
   const formMessage =
 
-    document.getElementById("formMessage");
+    document.getElementById(
+
+      "formMessage"
+
+    );
 
   const formTitle =
 
-    document.getElementById("formTitle");
+    document.getElementById(
+
+      "formTitle"
+
+    );
 
   const saveButton =
 
-    document.getElementById("saveButton");
+    document.getElementById(
+
+      "saveButton"
+
+    );
 
   const cancelEdit =
 
-    document.getElementById("cancelEdit");
+    document.getElementById(
+
+      "cancelEdit"
+
+    );
 
   const kpiDeclared =
 
-    document.getElementById("kpiDeclared");
+    document.getElementById(
+
+      "kpiDeclared"
+
+    );
 
   const kpiStout =
 
-    document.getElementById("kpiStout");
+    document.getElementById(
+
+      "kpiStout"
+
+    );
 
   const kpiTotal =
 
-    document.getElementById("kpiTotal");
+    document.getElementById(
+
+      "kpiTotal"
+
+    );
 
   const average =
 
-    document.getElementById("average");
+    document.getElementById(
+
+      "average"
+
+    );
 
   const dayCount =
 
-    document.getElementById("dayCount");
+    document.getElementById(
+
+      "dayCount"
+
+    );
 
   const periodText =
 
-    document.getElementById("periodText");
+    document.getElementById(
+
+      "periodText"
+
+    );
 
   const historyList =
 
-    document.getElementById("historyList");
+    document.getElementById(
+
+      "historyList"
+
+    );
 
   const emptyHistory =
 
-    document.getElementById("emptyHistory");
+    document.getElementById(
+
+      "emptyHistory"
+
+    );
 
   const historySubtitle =
 
-    document.getElementById("historySubtitle");
+    document.getElementById(
+
+      "historySubtitle"
+
+    );
 
   const chart =
 
-    document.getElementById("chart");
+    document.getElementById(
+
+      "chart"
+
+    );
+
+  const tableBody =
+
+    document.getElementById(
+
+      "tableBody"
+
+    );
+
+  const emptyTable =
+
+    document.getElementById(
+
+      "emptyTable"
+
+    );
+
+  const tableContent =
+
+    document.getElementById(
+
+      "tableContent"
+
+    );
+
+  const tableSubtitle =
+
+    document.getElementById(
+
+      "tableSubtitle"
+
+    );
+
+  const tableDeclaredTotal =
+
+    document.getElementById(
+
+      "tableDeclaredTotal"
+
+    );
+
+  const tableStoutTotal =
+
+    document.getElementById(
+
+      "tableStoutTotal"
+
+    );
+
+  const tableGrandTotal =
+
+    document.getElementById(
+
+      "tableGrandTotal"
+
+    );
 
   /* =========================
 
@@ -1494,7 +2230,9 @@
 
   function todayISO() {
 
-    const now = new Date();
+    const now =
+
+      new Date();
 
     const year =
 
@@ -1502,17 +2240,37 @@
 
     const month =
 
-      String(now.getMonth() + 1)
+      String(
 
-        .padStart(2, "0");
+        now.getMonth() + 1
+
+      ).padStart(
+
+        2,
+
+        "0"
+
+      );
 
     const day =
 
-      String(now.getDate())
+      String(
 
-        .padStart(2, "0");
+        now.getDate()
 
-    return `${year}-${month}-${day}`;
+      ).padStart(
+
+        2,
+
+        "0"
+
+      );
+
+    return (
+
+      `${year}-${month}-${day}`
+
+    );
 
   }
 
@@ -1552,7 +2310,35 @@
 
       }
 
-    ).format(parseDate(date));
+    ).format(
+
+      parseDate(date)
+
+    );
+
+  }
+
+  function shortDate(date) {
+
+    return new Intl.DateTimeFormat(
+
+      "fr-BE",
+
+      {
+
+        day: "2-digit",
+
+        month: "2-digit",
+
+        year: "numeric"
+
+      }
+
+    ).format(
+
+      parseDate(date)
+
+    );
 
   }
 
@@ -1640,6 +2426,18 @@
 
     });
 
+    if (
+
+      pageName ===
+
+      "tablePage"
+
+    ) {
+
+      renderTable();
+
+    }
+
   }
 
   tabs.forEach(tab => {
@@ -1672,15 +2470,27 @@
 
     const declared =
 
-      Number(declaredInput.value) || 0;
+      Number(
+
+        declaredInput.value
+
+      ) || 0;
 
     const stout =
 
-      Number(stoutInput.value) || 0;
+      Number(
+
+        stoutInput.value
+
+      ) || 0;
 
     formTotal.textContent =
 
-      money(declared + stout);
+      money(
+
+        declared + stout
+
+      );
 
   }
 
@@ -1720,19 +2530,35 @@
 
       const declared =
 
-        Number(declaredInput.value);
+        Number(
+
+          declaredInput.value
+
+        );
 
       const stout =
 
-        Number(stoutInput.value);
+        Number(
+
+          stoutInput.value
+
+        );
 
       if (
 
         !date ||
 
-        !Number.isFinite(declared) ||
+        !Number.isFinite(
 
-        !Number.isFinite(stout) ||
+          declared
+
+        ) ||
+
+        !Number.isFinite(
+
+          stout
+
+        ) ||
 
         declared < 0 ||
 
@@ -1756,7 +2582,9 @@
 
             item =>
 
-              item.id === editingId
+              item.id ===
+
+              editingId
 
           );
 
@@ -1804,7 +2632,9 @@
 
           id:
 
-            Date.now().toString(),
+            Date.now()
+
+              .toString(),
 
           date,
 
@@ -1822,9 +2652,15 @@
 
       renderAll();
 
-      showPage("dashboard");
+      showPage(
 
-  });
+        "dashboard"
+
+      );
+
+    }
+
+  );
 
   /* =========================
 
@@ -1834,15 +2670,21 @@
 
   function resetForm() {
 
-    editingId = null;
+    editingId =
+
+      null;
 
     dateInput.value =
 
       todayISO();
 
-    declaredInput.value = "";
+    declaredInput.value =
 
-    stoutInput.value = "";
+      "";
+
+    stoutInput.value =
+
+      "";
 
     formTotal.textContent =
 
@@ -1928,7 +2770,11 @@
 
     updateFormTotal();
 
-    showPage("add");
+    showPage(
+
+      "add"
+
+    );
 
   }
 
@@ -1962,7 +2808,11 @@
 
         "Supprimer la journée du " +
 
-        formatDate(entry.date) +
+        formatDate(
+
+          entry.date
+
+        ) +
 
         " ?"
 
@@ -1998,7 +2848,9 @@
 
   function renderHistory() {
 
-    historyList.innerHTML = "";
+    historyList.innerHTML =
+
+      "";
 
     const sorted =
 
@@ -2038,155 +2890,205 @@
 
         : "block";
 
-    sorted.forEach(entry => {
+    sorted.forEach(
 
-      const row =
+      entry => {
 
-        document.createElement("div");
+        const row =
 
-      row.className =
+          document.createElement(
 
-        "history-row";
+            "div"
 
-      const total =
+          );
 
-        entry.declared +
+        row.className =
 
-        entry.stout;
+          "history-row";
 
-      row.innerHTML = `
+        const total =
 
-        <div>
+          entry.declared +
 
-          <div class="history-date">
+          entry.stout;
 
-            ${formatDate(entry.date)}
+        row.innerHTML = `
 
-          </div>
+          <div>
 
-          <div class="history-small">
+            <div class="history-date">
 
-            Total : ${money(total)}
+              ${formatDate(entry.date)}
 
-          </div>
+            </div>
 
-        </div>
+            <div class="history-small">
 
-        <div>
+              Total : ${money(total)}
 
-          <div class="history-label">
-
-            Déclaré
+            </div>
 
           </div>
 
-          <div class="history-amount declared">
+          <div>
 
-            ${money(entry.declared)}
+            <div class="history-label">
 
-          </div>
+              Déclaré
 
-        </div>
+            </div>
 
-        <div>
+            <div class="history-amount declared">
 
-          <div class="history-label">
+              ${money(entry.declared)}
 
-            STOUT
-
-          </div>
-
-          <div class="history-amount stout">
-
-            ${money(entry.stout)}
+            </div>
 
           </div>
 
-        </div>
+          <div>
 
-        <div class="row-actions">
+            <div class="history-label">
 
-          <button
+              STOUT
 
-            class="icon-btn edit"
+            </div>
 
-            type="button"
+            <div class="history-amount stout">
 
-            aria-label="Modifier"
+              ${money(entry.stout)}
 
-          >
+            </div>
 
-            ✏️
+          </div>
 
-          </button>
+          <div class="row-actions">
 
-          <button
+            <button
 
-            class="icon-btn delete"
+              class="icon-btn edit"
 
-            type="button"
+              type="button"
 
-            aria-label="Supprimer"
+              aria-label="Modifier"
 
-          >
+            >
 
-            🗑️
+              ✏️
 
-          </button>
+            </button>
 
-        </div>
+            <button
 
-      `;
+              class="icon-btn delete"
 
-      row
+              type="button"
 
-        .querySelector(".edit")
+              aria-label="Supprimer"
 
-        .addEventListener(
+            >
 
-          "click",
+              🗑️
 
-          () =>
+            </button>
 
-            editEntry(entry.id)
+          </div>
 
-        );
-
-      row
-
-        .querySelector(".delete")
-
-        .addEventListener(
-
-          "click",
-
-          () =>
-
-            deleteEntry(entry.id)
-
-        );
-
-      historyList.appendChild(
+        `;
 
         row
 
-      );
+          .querySelector(
 
-    });
+            ".edit"
+
+          )
+
+          .addEventListener(
+
+            "click",
+
+            () =>
+
+              editEntry(
+
+                entry.id
+
+              )
+
+          );
+
+        row
+
+          .querySelector(
+
+            ".delete"
+
+          )
+
+          .addEventListener(
+
+            "click",
+
+            () =>
+
+              deleteEntry(
+
+                entry.id
+
+              )
+
+          );
+
+        historyList.appendChild(
+
+          row
+
+        );
+
+      }
+
+    );
 
   }
 
   /* =========================
 
-     PERIOD FILTER
+     FILTER
 
   ========================= */
 
-  function getPeriodEntries() {
+  function filterEntries(
+
+    period
+
+  ) {
 
     const now =
 
       new Date();
+
+    if (
+
+      period === "all"
+
+    ) {
+
+      return [...entries]
+
+        .sort(
+
+          (a, b) =>
+
+            a.date.localeCompare(
+
+              b.date
+
+            )
+
+        );
+
+    }
 
     return entries
 
@@ -2194,11 +3096,15 @@
 
         const date =
 
-          parseDate(entry.date);
+          parseDate(
+
+            entry.date
+
+          );
 
         if (
 
-          currentPeriod === "year"
+          period === "year"
 
         ) {
 
@@ -2214,7 +3120,7 @@
 
         if (
 
-          currentPeriod === "month"
+          period === "month"
 
         ) {
 
@@ -2238,7 +3144,13 @@
 
         const day =
 
-          (current.getDay() + 6) % 7;
+          (
+
+            current.getDay() +
+
+            6
+
+          ) % 7;
 
         const monday =
 
@@ -2246,13 +3158,21 @@
 
         monday.setDate(
 
-          current.getDate() - day
+          current.getDate() -
+
+          day
 
         );
 
         monday.setHours(
 
-          0, 0, 0, 0
+          0,
+
+          0,
+
+          0,
+
+          0
 
         );
 
@@ -2262,7 +3182,9 @@
 
         sunday.setDate(
 
-          monday.getDate() + 7
+          monday.getDate() +
+
+          7
 
         );
 
@@ -2290,47 +3212,111 @@
 
   }
 
-  /* =========================
+  function getPeriodEntries() {
 
-     PERIOD BUTTONS
+    return filterEntries(
 
-  ========================= */
-
-  periodButtons.forEach(button => {
-
-    button.addEventListener(
-
-      "click",
-
-      () => {
-
-        currentPeriod =
-
-          button.dataset.period;
-
-        periodButtons.forEach(
-
-          item => {
-
-            item.classList.toggle(
-
-              "active",
-
-              item === button
-
-            );
-
-          }
-
-        );
-
-        renderDashboard();
-
-      }
+      currentPeriod
 
     );
 
-  });
+  }
+
+  /* =========================
+
+     GRAPH PERIOD BUTTONS
+
+  ========================= */
+
+  periodButtons.forEach(
+
+    button => {
+
+      button.addEventListener(
+
+        "click",
+
+        () => {
+
+          currentPeriod =
+
+            button.dataset.period;
+
+          periodButtons.forEach(
+
+            item => {
+
+              item.classList.toggle(
+
+                "active",
+
+                item === button
+
+              );
+
+            }
+
+          );
+
+          renderDashboard();
+
+        }
+
+      );
+
+    }
+
+  );
+
+  /* =========================
+
+     TABLE PERIOD BUTTONS
+
+  ========================= */
+
+  tablePeriodButtons.forEach(
+
+    button => {
+
+      button.addEventListener(
+
+        "click",
+
+        () => {
+
+          currentTablePeriod =
+
+            button.dataset
+
+              .tablePeriod;
+
+          tablePeriodButtons
+
+            .forEach(
+
+              item => {
+
+                item.classList.toggle(
+
+                  "active",
+
+                  item === button
+
+                );
+
+              }
+
+            );
+
+          renderTable();
+
+        }
+
+      );
+
+    }
+
+  );
 
   /* =========================
 
@@ -2350,7 +3336,13 @@
 
         (total, entry) =>
 
-          total + entry.declared,
+          total +
+
+          Number(
+
+            entry.declared
+
+          ),
 
         0
 
@@ -2362,7 +3354,13 @@
 
         (total, entry) =>
 
-          total + entry.stout,
+          total +
+
+          Number(
+
+            entry.stout
+
+          ),
 
         0
 
@@ -2404,7 +3402,9 @@
 
     if (
 
-      currentPeriod === "week"
+      currentPeriod ===
+
+      "week"
 
     ) {
 
@@ -2416,7 +3416,9 @@
 
     else if (
 
-      currentPeriod === "month"
+      currentPeriod ===
+
+      "month"
 
     ) {
 
@@ -2444,29 +3446,257 @@
 
   /* =========================
 
+     TABLEAU
+
+  ========================= */
+
+  function renderTable() {
+
+    const data =
+
+      filterEntries(
+
+        currentTablePeriod
+
+      );
+
+    tableBody.innerHTML =
+
+      "";
+
+    if (
+
+      currentTablePeriod ===
+
+      "week"
+
+    ) {
+
+      tableSubtitle.textContent =
+
+        "Vue de la semaine en cours";
+
+    }
+
+    else if (
+
+      currentTablePeriod ===
+
+      "month"
+
+    ) {
+
+      tableSubtitle.textContent =
+
+        "Vue du mois en cours";
+
+    }
+
+    else if (
+
+      currentTablePeriod ===
+
+      "year"
+
+    ) {
+
+      tableSubtitle.textContent =
+
+        "Vue de l’année en cours";
+
+    }
+
+    else {
+
+      tableSubtitle.textContent =
+
+        "Toutes les journées enregistrées";
+
+    }
+
+    if (!data.length) {
+
+      emptyTable.style.display =
+
+        "block";
+
+      tableContent.style.display =
+
+        "none";
+
+      return;
+
+    }
+
+    emptyTable.style.display =
+
+      "none";
+
+    tableContent.style.display =
+
+      "block";
+
+    let declaredTotal =
+
+      0;
+
+    let stoutTotal =
+
+      0;
+
+    data.forEach(
+
+      entry => {
+
+        const declared =
+
+          Number(
+
+            entry.declared
+
+          ) || 0;
+
+        const stout =
+
+          Number(
+
+            entry.stout
+
+          ) || 0;
+
+        const total =
+
+          declared +
+
+          stout;
+
+        declaredTotal +=
+
+          declared;
+
+        stoutTotal +=
+
+          stout;
+
+        const row =
+
+          document.createElement(
+
+            "tr"
+
+          );
+
+        row.innerHTML = `
+
+          <td class="table-date">
+
+            ${shortDate(entry.date)}
+
+          </td>
+
+          <td class="declared">
+
+            ${money(declared)}
+
+          </td>
+
+          <td class="stout">
+
+            ${money(stout)}
+
+          </td>
+
+          <td class="table-total">
+
+            ${money(total)}
+
+          </td>
+
+        `;
+
+        tableBody.appendChild(
+
+          row
+
+        );
+
+      }
+
+    );
+
+    tableDeclaredTotal
+
+      .textContent =
+
+        money(
+
+          declaredTotal
+
+        );
+
+    tableStoutTotal
+
+      .textContent =
+
+        money(
+
+          stoutTotal
+
+        );
+
+    tableGrandTotal
+
+      .textContent =
+
+        money(
+
+          declaredTotal +
+
+          stoutTotal
+
+        );
+
+  }
+
+  /* =========================
+
      SVG CHART
 
   ========================= */
 
   function renderChart(data) {
 
-    chart.innerHTML = "";
+    chart.innerHTML =
+
+      "";
 
     const NS =
 
       "http://www.w3.org/2000/svg";
 
-    const width = 800;
+    const width =
 
-    const height = 310;
+      800;
 
-    const left = 60;
+    const height =
 
-    const right = 20;
+      310;
 
-    const top = 20;
+    const left =
 
-    const bottom = 55;
+      60;
+
+    const right =
+
+      20;
+
+    const top =
+
+      20;
+
+    const bottom =
+
+      55;
 
     function element(
 
@@ -2508,7 +3738,11 @@
 
       );
 
-      if (text !== undefined) {
+      if (
+
+        text !== undefined
+
+      ) {
 
         node.textContent =
 
@@ -2534,15 +3768,25 @@
 
         {
 
-          x: width / 2,
+          x:
 
-          y: height / 2,
+            width / 2,
 
-          "text-anchor": "middle",
+          y:
 
-          fill: "#77706b",
+            height / 2,
 
-          "font-size": "15"
+          "text-anchor":
+
+            "middle",
+
+          fill:
+
+            "#77706b",
+
+          "font-size":
+
+            "15"
 
         },
 
@@ -2564,9 +3808,17 @@
 
           item => [
 
-            item.declared,
+            Number(
 
-            item.stout
+              item.declared
+
+            ) || 0,
+
+            Number(
+
+              item.stout
+
+            ) || 0
 
           ]
 
@@ -2620,9 +3872,13 @@
 
           y2: y,
 
-          stroke: "#e7e1dc",
+          stroke:
 
-          "stroke-width": 1
+            "#e7e1dc",
+
+          "stroke-width":
+
+            1
 
         }
 
@@ -2634,21 +3890,33 @@
 
         {
 
-          x: left - 8,
+          x:
 
-          y: y + 4,
+            left - 8,
 
-          "text-anchor": "end",
+          y:
 
-          fill: "#77706b",
+            y + 4,
 
-          "font-size": 10
+          "text-anchor":
+
+            "end",
+
+          fill:
+
+            "#77706b",
+
+          "font-size":
+
+            10
 
         },
 
         Math.round(
 
-          maxValue * ratio
+          maxValue *
+
+          ratio
 
         ) + "€"
 
@@ -2688,7 +3956,9 @@
 
           left +
 
-          slot * index +
+          slot *
+
+          index +
 
           slot / 2;
 
@@ -2696,7 +3966,15 @@
 
           (
 
-            entry.declared /
+            (
+
+              Number(
+
+                entry.declared
+
+              ) || 0
+
+            ) /
 
             maxValue
 
@@ -2708,7 +3986,15 @@
 
           (
 
-            entry.stout /
+            (
+
+              Number(
+
+                entry.stout
+
+              ) || 0
+
+            ) /
 
             maxValue
 
@@ -2764,7 +4050,9 @@
 
             x:
 
-              center + 3,
+              center +
+
+              3,
 
             y:
 
@@ -2834,7 +4122,9 @@
 
           {
 
-            x: center,
+            x:
+
+              center,
 
             y:
 
@@ -2870,7 +4160,7 @@
 
   /* =========================
 
-     RENDER
+     RENDER ALL
 
   ========================= */
 
@@ -2879,6 +4169,8 @@
     renderHistory();
 
     renderDashboard();
+
+    renderTable();
 
   }
 
