@@ -92,9 +92,7 @@
 
     button,
 
-    input,
-
-    select {
+    input {
 
       font: inherit;
 
@@ -194,7 +192,9 @@
 
       display: grid;
 
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns:
+
+        repeat(4, 1fr);
 
       gap: 7px;
 
@@ -242,7 +242,7 @@
 
     /* =========================
 
-       SECTIONS
+       PAGES / CARDS
 
     ========================= */
 
@@ -376,7 +376,7 @@
 
     /* =========================
 
-       PERIOD
+       PERIOD BUTTONS
 
     ========================= */
 
@@ -438,7 +438,7 @@
 
       width: 100%;
 
-      overflow-x: auto;
+      overflow: hidden;
 
     }
 
@@ -448,9 +448,11 @@
 
       width: 100%;
 
-      min-width: 600px;
+      height: auto;
 
-      height: 310px;
+      min-height: 310px;
+
+      max-width: 100%;
 
     }
 
@@ -499,6 +501,60 @@
     .dot-stout {
 
       background: var(--stout);
+
+    }
+
+    /* =========================
+
+       SUMMARY
+
+    ========================= */
+
+    .summary {
+
+      margin-top: 16px;
+
+      display: grid;
+
+      grid-template-columns:
+
+        repeat(2, 1fr);
+
+      gap: 10px;
+
+    }
+
+    .summary-box {
+
+      border-radius: 15px;
+
+      padding: 14px;
+
+      background: #faf8f6;
+
+      border:
+
+        1px solid
+
+        var(--border);
+
+    }
+
+    .summary-label {
+
+      font-size: 12px;
+
+      color: var(--muted);
+
+    }
+
+    .summary-value {
+
+      font-size: 20px;
+
+      font-weight: 800;
+
+      margin-top: 4px;
 
     }
 
@@ -594,9 +650,7 @@
 
       display: flex;
 
-      justify-content:
-
-        space-between;
+      justify-content: space-between;
 
       gap: 10px;
 
@@ -655,14 +709,6 @@
       background: #eee9e5;
 
       color: var(--text);
-
-    }
-
-    .btn-danger {
-
-      background: #ffe9e9;
-
-      color: var(--red);
 
     }
 
@@ -794,61 +840,7 @@
 
     /* =========================
 
-       SUMMARY
-
-    ========================= */
-
-    .summary {
-
-      margin-top: 16px;
-
-      display: grid;
-
-      grid-template-columns:
-
-        repeat(2, 1fr);
-
-      gap: 10px;
-
-    }
-
-    .summary-box {
-
-      border-radius: 15px;
-
-      padding: 14px;
-
-      background: #faf8f6;
-
-      border:
-
-        1px solid
-
-        var(--border);
-
-    }
-
-    .summary-label {
-
-      font-size: 12px;
-
-      color: var(--muted);
-
-    }
-
-    .summary-value {
-
-      font-size: 20px;
-
-      font-weight: 800;
-
-      margin-top: 4px;
-
-    }
-
-    /* =========================
-
-       TABLEAU
+       TABLE
 
     ========================= */
 
@@ -872,7 +864,7 @@
 
       width: 100%;
 
-      min-width: 650px;
+      min-width: 600px;
 
       border-collapse: collapse;
 
@@ -1122,11 +1114,7 @@
 
 <div class="app">
 
-  <!-- =========================
-
-       HEADER
-
-  ========================= -->
+  <!-- HEADER -->
 
   <header class="header">
 
@@ -1158,11 +1146,7 @@
 
   </header>
 
-  <!-- =========================
-
-       NAVIGATION
-
-  ========================= -->
+  <!-- NAVIGATION -->
 
   <nav class="tabs">
 
@@ -1316,7 +1300,7 @@
 
       >
 
-        Vue mensuelle
+        Vue du mois en cours
 
       </p>
 
@@ -1395,6 +1379,8 @@
           id="chart"
 
           viewBox="0 0 800 310"
+
+          preserveAspectRatio="xMidYMid meet"
 
           aria-label="Graphique des caisses"
 
@@ -1568,29 +1554,13 @@
 
               <tr>
 
-                <th>
+                <th>Date</th>
 
-                  Date
+                <th>Déclaré</th>
 
-                </th>
+                <th>STOUT</th>
 
-                <th>
-
-                  Déclaré
-
-                </th>
-
-                <th>
-
-                  STOUT
-
-                </th>
-
-                <th>
-
-                  Total
-
-                </th>
+                <th>Total</th>
 
               </tr>
 
@@ -1966,243 +1936,123 @@
 
   const tabs =
 
-    document.querySelectorAll(
-
-      ".tab"
-
-    );
+    document.querySelectorAll(".tab");
 
   const pages =
 
-    document.querySelectorAll(
-
-      ".page"
-
-    );
+    document.querySelectorAll(".page");
 
   const periodButtons =
 
-    document.querySelectorAll(
-
-      ".period-btn"
-
-    );
+    document.querySelectorAll(".period-btn");
 
   const tablePeriodButtons =
 
-    document.querySelectorAll(
-
-      ".table-period-btn"
-
-    );
+    document.querySelectorAll(".table-period-btn");
 
   const form =
 
-    document.getElementById(
-
-      "entryForm"
-
-    );
+    document.getElementById("entryForm");
 
   const dateInput =
 
-    document.getElementById(
-
-      "dateInput"
-
-    );
+    document.getElementById("dateInput");
 
   const declaredInput =
 
-    document.getElementById(
-
-      "declaredInput"
-
-    );
+    document.getElementById("declaredInput");
 
   const stoutInput =
 
-    document.getElementById(
-
-      "stoutInput"
-
-    );
+    document.getElementById("stoutInput");
 
   const formTotal =
 
-    document.getElementById(
-
-      "formTotal"
-
-    );
+    document.getElementById("formTotal");
 
   const formMessage =
 
-    document.getElementById(
-
-      "formMessage"
-
-    );
+    document.getElementById("formMessage");
 
   const formTitle =
 
-    document.getElementById(
-
-      "formTitle"
-
-    );
+    document.getElementById("formTitle");
 
   const saveButton =
 
-    document.getElementById(
-
-      "saveButton"
-
-    );
+    document.getElementById("saveButton");
 
   const cancelEdit =
 
-    document.getElementById(
-
-      "cancelEdit"
-
-    );
+    document.getElementById("cancelEdit");
 
   const kpiDeclared =
 
-    document.getElementById(
-
-      "kpiDeclared"
-
-    );
+    document.getElementById("kpiDeclared");
 
   const kpiStout =
 
-    document.getElementById(
-
-      "kpiStout"
-
-    );
+    document.getElementById("kpiStout");
 
   const kpiTotal =
 
-    document.getElementById(
-
-      "kpiTotal"
-
-    );
+    document.getElementById("kpiTotal");
 
   const average =
 
-    document.getElementById(
-
-      "average"
-
-    );
+    document.getElementById("average");
 
   const dayCount =
 
-    document.getElementById(
-
-      "dayCount"
-
-    );
+    document.getElementById("dayCount");
 
   const periodText =
 
-    document.getElementById(
-
-      "periodText"
-
-    );
+    document.getElementById("periodText");
 
   const historyList =
 
-    document.getElementById(
-
-      "historyList"
-
-    );
+    document.getElementById("historyList");
 
   const emptyHistory =
 
-    document.getElementById(
-
-      "emptyHistory"
-
-    );
+    document.getElementById("emptyHistory");
 
   const historySubtitle =
 
-    document.getElementById(
-
-      "historySubtitle"
-
-    );
+    document.getElementById("historySubtitle");
 
   const chart =
 
-    document.getElementById(
-
-      "chart"
-
-    );
+    document.getElementById("chart");
 
   const tableBody =
 
-    document.getElementById(
-
-      "tableBody"
-
-    );
+    document.getElementById("tableBody");
 
   const emptyTable =
 
-    document.getElementById(
-
-      "emptyTable"
-
-    );
+    document.getElementById("emptyTable");
 
   const tableContent =
 
-    document.getElementById(
-
-      "tableContent"
-
-    );
+    document.getElementById("tableContent");
 
   const tableSubtitle =
 
-    document.getElementById(
-
-      "tableSubtitle"
-
-    );
+    document.getElementById("tableSubtitle");
 
   const tableDeclaredTotal =
 
-    document.getElementById(
-
-      "tableDeclaredTotal"
-
-    );
+    document.getElementById("tableDeclaredTotal");
 
   const tableStoutTotal =
 
-    document.getElementById(
-
-      "tableStoutTotal"
-
-    );
+    document.getElementById("tableStoutTotal");
 
   const tableGrandTotal =
 
-    document.getElementById(
-
-      "tableGrandTotal"
-
-    );
+    document.getElementById("tableGrandTotal");
 
   /* =========================
 
@@ -2224,7 +2074,11 @@
 
       }
 
-    ).format(value || 0);
+    ).format(
+
+      Number(value) || 0
+
+    );
 
   }
 
@@ -2402,29 +2256,37 @@
 
   function showPage(pageName) {
 
-    pages.forEach(page => {
+    pages.forEach(
 
-      page.classList.toggle(
+      page => {
 
-        "active",
+        page.classList.toggle(
 
-        page.id === pageName
+          "active",
 
-      );
+          page.id === pageName
 
-    });
+        );
 
-    tabs.forEach(tab => {
+      }
 
-      tab.classList.toggle(
+    );
 
-        "active",
+    tabs.forEach(
 
-        tab.dataset.page === pageName
+      tab => {
 
-      );
+        tab.classList.toggle(
 
-    });
+          "active",
+
+          tab.dataset.page === pageName
+
+        );
+
+      }
+
+    );
 
     if (
 
@@ -2440,25 +2302,29 @@
 
   }
 
-  tabs.forEach(tab => {
+  tabs.forEach(
 
-    tab.addEventListener(
+    tab => {
 
-      "click",
+      tab.addEventListener(
 
-      () => {
+        "click",
 
-        showPage(
+        () => {
 
-          tab.dataset.page
+          showPage(
 
-        );
+            tab.dataset.page
 
-      }
+          );
 
-    );
+        }
 
-  });
+      );
+
+    }
+
+  );
 
   /* =========================
 
@@ -2512,7 +2378,7 @@
 
   /* =========================
 
-     SAVE ENTRY
+     SAVE
 
   ========================= */
 
@@ -2548,17 +2414,9 @@
 
         !date ||
 
-        !Number.isFinite(
+        !Number.isFinite(declared) ||
 
-          declared
-
-        ) ||
-
-        !Number.isFinite(
-
-          stout
-
-        ) ||
+        !Number.isFinite(stout) ||
 
         declared < 0 ||
 
@@ -2664,7 +2522,7 @@
 
   /* =========================
 
-     RESET FORM
+     RESET
 
   ========================= */
 
@@ -2906,11 +2764,27 @@
 
           "history-row";
 
+        const declared =
+
+          Number(
+
+            entry.declared
+
+          ) || 0;
+
+        const stout =
+
+          Number(
+
+            entry.stout
+
+          ) || 0;
+
         const total =
 
-          entry.declared +
+          declared +
 
-          entry.stout;
+          stout;
 
         row.innerHTML = `
 
@@ -2940,7 +2814,7 @@
 
             <div class="history-amount declared">
 
-              ${money(entry.declared)}
+              ${money(declared)}
 
             </div>
 
@@ -2956,7 +2830,7 @@
 
             <div class="history-amount stout">
 
-              ${money(entry.stout)}
+              ${money(stout)}
 
             </div>
 
@@ -2998,11 +2872,7 @@
 
         row
 
-          .querySelector(
-
-            ".edit"
-
-          )
+          .querySelector(".edit")
 
           .addEventListener(
 
@@ -3020,11 +2890,7 @@
 
         row
 
-          .querySelector(
-
-            ".delete"
-
-          )
+          .querySelector(".delete")
 
           .addEventListener(
 
@@ -3058,11 +2924,7 @@
 
   ========================= */
 
-  function filterEntries(
-
-    period
-
-  ) {
+  function filterEntries(period) {
 
     const now =
 
@@ -3092,111 +2954,115 @@
 
     return entries
 
-      .filter(entry => {
+      .filter(
 
-        const date =
+        entry => {
 
-          parseDate(
+          const date =
 
-            entry.date
+            parseDate(
+
+              entry.date
+
+            );
+
+          if (
+
+            period === "year"
+
+          ) {
+
+            return (
+
+              date.getFullYear() ===
+
+              now.getFullYear()
+
+            );
+
+          }
+
+          if (
+
+            period === "month"
+
+          ) {
+
+            return (
+
+              date.getFullYear() ===
+
+                now.getFullYear() &&
+
+              date.getMonth() ===
+
+                now.getMonth()
+
+            );
+
+          }
+
+          const current =
+
+            new Date(now);
+
+          const day =
+
+            (
+
+              current.getDay() +
+
+              6
+
+            ) % 7;
+
+          const monday =
+
+            new Date(current);
+
+          monday.setDate(
+
+            current.getDate() -
+
+            day
 
           );
 
-        if (
+          monday.setHours(
 
-          period === "year"
+            0,
 
-        ) {
+            0,
+
+            0,
+
+            0
+
+          );
+
+          const sunday =
+
+            new Date(monday);
+
+          sunday.setDate(
+
+            monday.getDate() +
+
+            7
+
+          );
 
           return (
 
-            date.getFullYear() ===
+            date >= monday &&
 
-            now.getFullYear()
+            date < sunday
 
           );
 
         }
 
-        if (
-
-          period === "month"
-
-        ) {
-
-          return (
-
-            date.getFullYear() ===
-
-              now.getFullYear() &&
-
-            date.getMonth() ===
-
-              now.getMonth()
-
-          );
-
-        }
-
-        const current =
-
-          new Date(now);
-
-        const day =
-
-          (
-
-            current.getDay() +
-
-            6
-
-          ) % 7;
-
-        const monday =
-
-          new Date(current);
-
-        monday.setDate(
-
-          current.getDate() -
-
-          day
-
-        );
-
-        monday.setHours(
-
-          0,
-
-          0,
-
-          0,
-
-          0
-
-        );
-
-        const sunday =
-
-          new Date(monday);
-
-        sunday.setDate(
-
-          monday.getDate() +
-
-          7
-
-        );
-
-        return (
-
-          date >= monday &&
-
-          date < sunday
-
-        );
-
-      })
+      )
 
       .sort(
 
@@ -3212,19 +3078,9 @@
 
   }
 
-  function getPeriodEntries() {
-
-    return filterEntries(
-
-      currentPeriod
-
-    );
-
-  }
-
   /* =========================
 
-     GRAPH PERIOD BUTTONS
+     GRAPH PERIODS
 
   ========================= */
 
@@ -3270,7 +3126,7 @@
 
   /* =========================
 
-     TABLE PERIOD BUTTONS
+     TABLE PERIODS
 
   ========================= */
 
@@ -3290,23 +3146,21 @@
 
               .tablePeriod;
 
-          tablePeriodButtons
+          tablePeriodButtons.forEach(
 
-            .forEach(
+            item => {
 
-              item => {
+              item.classList.toggle(
 
-                item.classList.toggle(
+                "active",
 
-                  "active",
+                item === button
 
-                  item === button
+              );
 
-                );
+            }
 
-              }
-
-            );
+          );
 
           renderTable();
 
@@ -3328,7 +3182,11 @@
 
     const periodEntries =
 
-      getPeriodEntries();
+      filterEntries(
+
+        currentPeriod
+
+      );
 
     const declared =
 
@@ -3338,9 +3196,13 @@
 
           total +
 
-          Number(
+          (
 
-            entry.declared
+            Number(
+
+              entry.declared
+
+            ) || 0
 
           ),
 
@@ -3356,9 +3218,13 @@
 
           total +
 
-          Number(
+          (
 
-            entry.stout
+            Number(
+
+              entry.stout
+
+            ) || 0
 
           ),
 
@@ -3368,7 +3234,9 @@
 
     const total =
 
-      declared + stout;
+      declared +
+
+      stout;
 
     kpiDeclared.textContent =
 
@@ -3402,9 +3270,7 @@
 
     if (
 
-      currentPeriod ===
-
-      "week"
+      currentPeriod === "week"
 
     ) {
 
@@ -3416,9 +3282,7 @@
 
     else if (
 
-      currentPeriod ===
-
-      "month"
+      currentPeriod === "month"
 
     ) {
 
@@ -3446,7 +3310,7 @@
 
   /* =========================
 
-     TABLEAU
+     TABLE
 
   ========================= */
 
@@ -3466,9 +3330,7 @@
 
     if (
 
-      currentTablePeriod ===
-
-      "week"
+      currentTablePeriod === "week"
 
     ) {
 
@@ -3480,9 +3342,7 @@
 
     else if (
 
-      currentTablePeriod ===
-
-      "month"
+      currentTablePeriod === "month"
 
     ) {
 
@@ -3494,9 +3354,7 @@
 
     else if (
 
-      currentTablePeriod ===
-
-      "year"
+      currentTablePeriod === "year"
 
     ) {
 
@@ -3624,43 +3482,37 @@
 
     );
 
-    tableDeclaredTotal
+    tableDeclaredTotal.textContent =
 
-      .textContent =
+      money(
 
-        money(
+        declaredTotal
 
-          declaredTotal
+      );
 
-        );
+    tableStoutTotal.textContent =
 
-    tableStoutTotal
+      money(
 
-      .textContent =
+        stoutTotal
 
-        money(
+      );
 
-          stoutTotal
+    tableGrandTotal.textContent =
 
-        );
+      money(
 
-    tableGrandTotal
+        declaredTotal +
 
-      .textContent =
+        stoutTotal
 
-        money(
-
-          declaredTotal +
-
-          stoutTotal
-
-        );
+      );
 
   }
 
   /* =========================
 
-     SVG CHART
+     GRAPH
 
   ========================= */
 
@@ -3760,6 +3612,8 @@
 
     }
 
+    /* Aucun résultat */
+
     if (!data.length) {
 
       element(
@@ -3768,15 +3622,15 @@
 
         {
 
-          x:
+          x: 400,
 
-            width / 2,
-
-          y:
-
-            height / 2,
+          y: 150,
 
           "text-anchor":
+
+            "middle",
+
+          "dominant-baseline":
 
             "middle",
 
@@ -3786,7 +3640,7 @@
 
           "font-size":
 
-            "15"
+            "22"
 
         },
 
@@ -3833,6 +3687,8 @@
       top -
 
       bottom;
+
+    /* GRID */
 
     for (
 
@@ -3962,19 +3818,27 @@
 
           slot / 2;
 
+        const declared =
+
+          Number(
+
+            entry.declared
+
+          ) || 0;
+
+        const stout =
+
+          Number(
+
+            entry.stout
+
+          ) || 0;
+
         const declaredHeight =
 
           (
 
-            (
-
-              Number(
-
-                entry.declared
-
-              ) || 0
-
-            ) /
+            declared /
 
             maxValue
 
@@ -3986,21 +3850,15 @@
 
           (
 
-            (
-
-              Number(
-
-                entry.stout
-
-              ) || 0
-
-            ) /
+            stout /
 
             maxValue
 
           ) *
 
           graphHeight;
+
+        /* DECLARED BAR */
 
         element(
 
@@ -4032,7 +3890,9 @@
 
               declaredHeight,
 
-            rx: 5,
+            rx:
+
+              5,
 
             fill:
 
@@ -4041,6 +3901,8 @@
           }
 
         );
+
+        /* STOUT BAR */
 
         element(
 
@@ -4070,7 +3932,9 @@
 
               stoutHeight,
 
-            rx: 5,
+            rx:
+
+              5,
 
             fill:
 
