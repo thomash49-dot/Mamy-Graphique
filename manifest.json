@@ -1,0 +1,47 @@
+{
+
+  "name": "Mamy Graphique",
+
+  "short_name": "Mamy Graph",
+
+  "description": "Suivi quotidien des caisses",
+
+  "start_url": "./",
+
+  "scope": "./",
+
+  "display": "standalone",
+
+  "background_color": "#f5f3ef",
+
+  "theme_color": "#e87524",
+
+  "icons": [
+
+    {
+
+      "src": "./icon.PNG",
+
+      "sizes": "1024x1024",
+
+      "type": "image/png",
+
+      "purpose": "any"
+
+    },
+
+    {
+
+      "src": "./icon.PNG",
+
+      "sizes": "1024x1024",
+
+      "type": "image/png",
+
+      "purpose": "maskable"
+
+    }
+
+  ]
+
+}
